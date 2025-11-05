@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AbilitySystemInterface.h"
+#include "Abilities/GameplayAbility.h"
 #include "GameFramework/Character.h"
 #include "CC_BaseCharacter.generated.h"
 
@@ -16,6 +17,13 @@ public:
 
 	ACC_BaseCharacter();
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+
+protected:
+	void GiveStartupAbilities();
 	
+private:
+
+	UPROPERTY(EditDefaultsOnly, Category="Crash|Abilities")
+	TArray<TSubclassOf<UGameplayAbility>> StartupAbilities;
 	
 };
