@@ -14,5 +14,10 @@ ACC_BaseCharacter::ACC_BaseCharacter()
 	
 }
 
+UAbilitySystemComponent* ACC_BaseCharacter::GetAbilitySystemComponent() const
+{
+	return nullptr;
+}
+
 
 
