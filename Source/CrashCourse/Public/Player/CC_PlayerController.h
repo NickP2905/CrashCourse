@@ -10,6 +10,7 @@ class UInputMappingContext;
 class UInputAction;
 
 struct FInputActionValue;
+struct FGameplayTag;
 
 /**
  * 
@@ -39,6 +40,12 @@ private:
 	
 	UPROPERTY(EditDefaultsOnly, Category="Crash|Input|Abilities")
 	TObjectPtr<UInputAction> PrimaryAction;
+
+	UPROPERTY(EditDefaultsOnly, Category="Crash|Input|Abilities")
+	TObjectPtr<UInputAction> SecondaryAction;
+
+	UPROPERTY(EditDefaultsOnly, Category="Crash|Input|Abilities")
+	TObjectPtr<UInputAction> TertiaryAction;
 	
 	void Jump();
 	void StopJumping();
@@ -46,5 +53,9 @@ private:
 	void Look(const FInputActionValue& Value);
 
 	void Primary();
+	void Secondary();
+	void Tertiary();
+
+	void ActivateAbility(const FGameplayTag& AbilityTag);
 		
 };
