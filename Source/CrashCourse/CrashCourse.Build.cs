@@ -11,7 +11,7 @@ public class CrashCourse : ModuleRules
 		PublicDependencyModuleNames.AddRange(new string[]
 		{
 			"Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput", 
-			"GameplayAbilities", "GameplayTags", "GameplayTags"
+			"GameplayAbilities", "GameplayTags", "GameplayTasks"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
