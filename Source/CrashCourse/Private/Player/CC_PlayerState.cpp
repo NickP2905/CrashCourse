@@ -3,6 +3,7 @@
 
 #include "Player/CC_PlayerState.h"
 #include  "AbilitySystem/CC_AbilitySystemComponent.h"
+#include "AbilitySystem/CC_AttributeSet.h"
 
 ACC_PlayerState::ACC_PlayerState()
 {
@@ -12,6 +13,7 @@ ACC_PlayerState::ACC_PlayerState()
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
 
+	AttributeSet = CreateDefaultSubobject<UCC_AttributeSet>("AttributeSet");
 	
 }
 
