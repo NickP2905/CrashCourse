@@ -19,17 +19,6 @@ ACC_EnemyCharacter::ACC_EnemyCharacter()
 	
 }
 
-UAbilitySystemComponent* ACC_EnemyCharacter::GetAbilitySystemComponent() const
-{
-	return AbilitySystemComponent;
-}
-
-UAttributeSet* ACC_EnemyCharacter::GetAttributeSet() const
-{
-	return AttributeSet;
-}
-
-
 void ACC_EnemyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
@@ -43,6 +32,23 @@ void ACC_EnemyCharacter::BeginPlay()
 
 	GiveStartupAbilities();
 	InitialiseAttributes();
+
+	UCC_AttributeSet* CC_AttributeSet = Cast<UCC_AttributeSet>(GetAttributeSet());
+	if (!IsValid(CC_AttributeSet))  return;
+	GetAbilitySystemComponent()->GetGameplayAttributeValueChangeDelegate(CC_AttributeSet->GetHealthAttribute()).AddUObject(this, &ThisClass::OnHealthChanged);
 	
 }
+
+
+UAbilitySystemComponent* ACC_EnemyCharacter::GetAbilitySystemComponent() const
+{
+	return AbilitySystemComponent;
+}
+
+UAttributeSet* ACC_EnemyCharacter::GetAttributeSet() const
+{
+	return AttributeSet;
+}
+
+
 
