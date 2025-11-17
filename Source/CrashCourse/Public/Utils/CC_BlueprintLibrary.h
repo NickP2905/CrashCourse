@@ -9,6 +9,17 @@
 UENUM(BlueprintType)
 enum class EHitDirection :uint8 { Left, Right, Forward, Back};
 
+USTRUCT(BlueprintType)
+struct FClosestActorWithTagResult
+{
+	GENERATED_BODY()
+
+	UPROPERTY(BlueprintReadWrite)
+	TWeakObjectPtr<AActor> Actor;
+	UPROPERTY(BlueprintReadWrite)
+	float Distance{0.f};
+};
+
 /**
  * 
  */
@@ -24,5 +35,8 @@ public:
 
 	UFUNCTION(BlueprintPure)
 	static FName GetHitDirectionName(const EHitDirection& HitDirection);
+
+	UFUNCTION(BlueprintCallable)
+	static FClosestActorWithTagResult FindClosestActorWithTag(const UObject* WorldContextObject, const FVector& Origin, const FName& Tag);
 	
 };
