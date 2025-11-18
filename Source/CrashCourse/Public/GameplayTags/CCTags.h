@@ -5,6 +5,10 @@
 
 namespace CCTags
 {
+	namespace SetByCaller
+	{
+		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Projectile);
+	}
 	namespace CCAbilities
 	{
 		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Primary);
@@ -12,6 +16,11 @@ namespace CCTags
 		UE_DECLARE_GAMEPLAY_TAG_EXTERN(Tertiary);
 
 		UE_DECLARE_GAMEPLAY_TAG_EXTERN(ActivateOnGiven);
+
+		namespace Enemy
+		{
+			UE_DECLARE_GAMEPLAY_TAG_EXTERN(Attack);
+		}
 		
 	}
 
@@ -21,6 +30,7 @@ namespace CCTags
 		namespace Enemy
 		{
 			UE_DECLARE_GAMEPLAY_TAG_EXTERN(HitReact);
+			UE_DECLARE_GAMEPLAY_TAG_EXTERN(EndAttack);
 			
 		}
 	}

@@ -20,6 +20,10 @@ public:
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	virtual UAttributeSet* GetAttributeSet() const override;
 
+	UFUNCTION(BlueprintImplementableEvent)
+	float GetTimeLineLength();
+	
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Crash|AI")
 	float AcceptanceRadius{500.f};
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Crash|AI")
