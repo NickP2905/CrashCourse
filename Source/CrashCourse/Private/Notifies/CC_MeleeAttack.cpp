@@ -47,7 +47,7 @@ TArray<FHitResult> UCC_MeleeAttack::PerformSphereTrace(USkeletalMeshComponent* M
 
 	if (bDrawDebugs)
 		DrawDebugSphereTraceMulti(World, Start, End, SphereTraceRadius, EDrawDebugTrace::ForDuration, bHit, OutHits,
-			FColor::Green, FColor::Red, 5.f);
+			FColor::Red, FColor::Green, 5.f);
 
 	return OutHits;
 }
