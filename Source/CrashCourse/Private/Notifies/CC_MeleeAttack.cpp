@@ -45,9 +45,11 @@ TArray<FHitResult> UCC_MeleeAttack::PerformSphereTrace(USkeletalMeshComponent* M
 	bool const bHit = World->SweepMultiByChannel(OutHits, Start, End, FQuat::Identity,
 		ECC_Visibility, FCollisionShape::MakeSphere(SphereTraceRadius), Params, ResponseParams);
 
+	/*
 	if (bDrawDebugs)
 		DrawDebugSphereTraceMulti(World, Start, End, SphereTraceRadius, EDrawDebugTrace::ForDuration, bHit, OutHits,
 			FColor::Red, FColor::Green, 5.f);
+	*/
 
 	return OutHits;
 }

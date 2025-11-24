@@ -40,8 +40,7 @@ void UCC_SearchForTarget::ActivateAbility(const FGameplayAbilitySpecHandle Handl
 
 void UCC_SearchForTarget::StartSearch()
 {
-	if (bDrawDebugs)
-		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Red, FString::Printf(TEXT("UCC_SearchForTarget::StartSearch ")));
+
 
 	if (!OwningEnemy.IsValid())  return;
 	const float SearchDelay = FMath::RandRange(OwningEnemy->MinAttackDelay, OwningEnemy->MaxAttackDelay);
@@ -52,6 +51,8 @@ void UCC_SearchForTarget::StartSearch()
 
 void UCC_SearchForTarget::MoveToTargetAndAttack()
 {
+	if (bDrawDebugs)
+		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Red, FString::Printf(TEXT("UCC_SearchForTarget::MoveToTargetAndAttack ")));
 	if (!OwningEnemy.IsValid() || !OwningAIController.IsValid() || !TargetBaseCharacter.IsValid())   return;
 	if (!OwningEnemy->IsAlive())
 	{
@@ -90,6 +91,7 @@ void UCC_SearchForTarget::EndAttackEventReceived(FGameplayEventData Payload)
 
 void UCC_SearchForTarget::AttackTarget(TEnumAsByte<EPathFollowingResult::Type> Result, AAIController* AIController)
 {
+
 	// TODO : 36:20 S6L6
 	if (Result != EPathFollowingResult::Success)
 	{
@@ -106,6 +108,7 @@ void UCC_SearchForTarget::AttackTarget(TEnumAsByte<EPathFollowingResult::Type> R
 
 void UCC_SearchForTarget::Attack()
 {
+
 	const FGameplayTag AttackTag = CCTags::CCAbilities::Enemy::Attack;
 	GetAbilitySystemComponentFromActorInfo()->TryActivateAbilitiesByTag(AttackTag.GetSingleTagContainer());
 }

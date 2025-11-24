@@ -28,7 +28,7 @@ namespace CCTags
 
 		namespace Player 
 		{
-			UE_DEFINE_GAMEPLAY_TAG_COMMENT(HitReact, "CCTags.Events.Enemy.HitReact", "Tag for Player HitReact Event");
+			UE_DEFINE_GAMEPLAY_TAG_COMMENT(HitReact, "CCTags.Events.Player.HitReact", "Tag for Player HitReact Event");
 			UE_DEFINE_GAMEPLAY_TAG_COMMENT(Death, "CCTags.Events.Player.Death", "Tag for Player Death Event");
 			
 		}

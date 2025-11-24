@@ -53,7 +53,7 @@ void UCC_Primary::SendHitReactEventToActors(const TArray<AActor*>& HitActors)
 
 void UCC_Primary::DrawHitBoxOverlapDebugs(TArray<FOverlapResult>& OverlapResults, const FVector& HitBoxLocation) const
 {
-	DrawDebugSphere(GetWorld(), HitBoxLocation, HitBoxRadius, 16, FColor::Red, false, 3.f);
+	// DrawDebugSphere(GetWorld(), HitBoxLocation, HitBoxRadius, 16, FColor::Red, false, 3.f);
 
 	for (const FOverlapResult& Result : OverlapResults)
 	{
@@ -61,7 +61,7 @@ void UCC_Primary::DrawHitBoxOverlapDebugs(TArray<FOverlapResult>& OverlapResults
 		{
 			FVector DebugLocation = Result.GetActor()->GetActorLocation();
 			DebugLocation.Z += 75.f;
-			DrawDebugSphere(GetWorld(), DebugLocation, 30, 10, FColor::Green, false, 3.f);
+			// DrawDebugSphere(GetWorld(), DebugLocation, 30, 10, FColor::Green, false, 3.f);
 		}
 	}
 }
