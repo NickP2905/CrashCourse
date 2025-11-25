@@ -108,7 +108,16 @@ void UCC_SearchForTarget::AttackTarget(TEnumAsByte<EPathFollowingResult::Type> R
 
 void UCC_SearchForTarget::Attack()
 {
+	if (!OwningEnemy->IsAlive())
+	{
+		StartSearch();
+		return;
+	}
 
 	const FGameplayTag AttackTag = CCTags::CCAbilities::Enemy::Attack;
-	GetAbilitySystemComponentFromActorInfo()->TryActivateAbilitiesByTag(AttackTag.GetSingleTagContainer());
+	if (!GetAbilitySystemComponentFromActorInfo()->TryActivateAbilitiesByTag(AttackTag.GetSingleTagContainer()))
+	{
+		StartSearch();
+		return;
+	};
 }
