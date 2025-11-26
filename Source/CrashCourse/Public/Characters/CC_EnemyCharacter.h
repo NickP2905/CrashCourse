@@ -17,11 +17,14 @@ class CRASHCOURSE_API ACC_EnemyCharacter : public ACC_BaseCharacter
 public:
 	
 	ACC_EnemyCharacter();
+	virtual void GetLifetimeReplicatedProps(TArray<class FLifetimeProperty>& OutLifetimeProps) const override;
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	virtual UAttributeSet* GetAttributeSet() const override;
 
 	UFUNCTION(BlueprintImplementableEvent)
 	float GetTimeLineLength();
+
+	void StopMovementUntilLanded();
 	
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Crash|AI")
@@ -30,6 +33,8 @@ public:
 	float MinAttackDelay{.1f};
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Crash|AI")
 	float MaxAttackDelay{.5f};
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Replicated)
+	bool bIsBeingLaunched{false};
 
 protected:
 	
@@ -37,6 +42,9 @@ protected:
 	virtual void HandleDeath() override;
 
 private:
+
+	UFUNCTION()
+	void EnableMovementOnLanded(const FHitResult& HitResult);
 
 	UPROPERTY()
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;

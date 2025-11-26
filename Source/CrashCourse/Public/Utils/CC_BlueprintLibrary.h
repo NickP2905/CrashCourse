@@ -47,5 +47,11 @@ public:
 	static void SendDamageEventToPlayer(AActor* Target, const TSubclassOf<UGameplayEffect>& DamageEffect, UPARAM(ref) FGameplayEventData& Payload,
 		const FGameplayTag& DataTag, float Damage, UObject* OptionalParticleSystem = nullptr);
 	
-	
+	UFUNCTION(BlueprintCallable, Category="Crash|Abilities")
+	static TArray<AActor*> HitBoxOverlapTest(AActor* AvatarActor, float HitBoxRadius, float HitBoxForwardOffset = 0.f, float HitBoxElevationOffset = 0.f, bool bDrawDebugs = false);
+
+	static void DrawHitBoxOverlapDebugs(const UObject* WorldContextObject, TArray<FOverlapResult>& OverlapResults, const FVector& HitBoxLocation, const float HitBoxRadius);
+
+	UFUNCTION(BlueprintCallable, Category = "Crash|Abilities")
+	static TArray<AActor*> ApplyKnockback(AActor* AvatarActor, const TArray<AActor*>& HitActors, float InnerRadius, float OuterRadius, float LaunchForceMagnitude, float RotationAngle = 45.f, bool bDrawDebugs = false);
 };
