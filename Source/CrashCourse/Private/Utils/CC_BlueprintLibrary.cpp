@@ -191,10 +191,12 @@ TArray<AActor*> UCC_BlueprintLibrary::ApplyKnockback(AActor* AvatarActor, const 
 				UWorld* World = GEngine->GetWorldFromContextObject(AvatarActor, EGetWorldErrorMode::LogAndReturnNull);
 				DrawDebugDirectionalArrow(World, HitCharacterLocation, HitCharacterLocation+KnockbackForce, 100.f, FColor::Green, false, 3.f);
 			}
+			/**
 			if (ACC_EnemyCharacter* EnemyCharacter = Cast<ACC_EnemyCharacter>(HitCharacter) ; IsValid((EnemyCharacter)))
 			{
 				EnemyCharacter->StopMovementUntilLanded();
 			}
+			**/
 			HitCharacter->LaunchCharacter(KnockbackForce, true, true);
 		}
 	}
